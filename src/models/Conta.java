@@ -1,21 +1,52 @@
 package models;
 
+import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Conta {
-    private String string;
+    private String numero;
     private Double saldo;
     private StatusConta status;
     private Cliente titular;
 
     private List<Transacao> historico = new ArrayList<>();
 
-    public Conta(String string, Double saldoInicial, Cliente titular) {
-        this.string = string;
+    public Conta(String numero, Double saldoInicial, Cliente titular) {
+        this.numero = numero;
         this.saldo = saldoInicial;
         this.titular = titular;
     }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public Cliente getTitular() {
+        return titular;
+    }
+
+    public StatusConta getStatus() {
+        return status;
+    }
+
+    public void bloquear() {
+        this.status = StatusConta.BLOQUEADA;
+    }
+
+    public void desbloquear() {
+        this.status = StatusConta.BLOQUEADA;
+    }
+
+    public boolean isAtiva() {
+        if (this.status == StatusConta.BLOQUEADA) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+
 
     private boolean validarValor(Double valor) {
         //valida os valores de saque
@@ -40,6 +71,8 @@ public class Conta {
         }
     }
 
+    private  boolean validarContaAtiva(){
 
+    }
 
 }
