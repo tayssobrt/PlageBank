@@ -51,7 +51,7 @@ public class Cliente {
     }
 
     public String getCpf() {
-        return "71871738465";
+        return cpf;
     }
 
     public boolean isBloqueado() {
