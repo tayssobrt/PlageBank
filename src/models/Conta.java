@@ -1,6 +1,4 @@
 package models;
-
-import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,7 +33,7 @@ public class Conta {
     }
 
     public void desbloquear() {
-        this.status = StatusConta.BLOQUEADA;
+        this.status = StatusConta.ATIVA;
     }
 
     public boolean isAtiva() {
@@ -45,8 +43,6 @@ public class Conta {
             return true;
         }
     }
-
-
 
     private boolean validarValor(Double valor) {
         //valida os valores de saque
