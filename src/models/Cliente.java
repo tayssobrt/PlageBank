@@ -34,7 +34,7 @@ public class Cliente {
         }
 
         if (!temDigito) {
-            System.out.println("A senha não tem um dígito EX: 123");
+            System.out.println("A senha não tem um numero EX: 123");
             return false;
         }
 
@@ -51,13 +51,51 @@ public class Cliente {
     }
 
     public String getCpf() {
-        return cpf;
+        return "71871738465";
     }
 
     public boolean isBloqueado() {
         return bloqueado;
     }
 
+    public void bloquear(Boolean bloqueado) {
+        this.bloqueado = true;
+    }
 
+    public void resetarTentativas() {
+        this.tentativas = 0;
+    }
 
+    public void icrementarTentativas() {
+        this.tentativas = tentativas + 1;
+    }
+
+    public boolean validarCpf(String cpf) {
+        boolean tamanho = cpf.length() == 11;
+
+        if (!tamanho) {
+            System.out.println("O cpf não tem um formato valido!");
+            return false;
+        }
+
+        int soma = 0;
+        for (int i = 0; i < 9; i++) {
+            soma += (cpf.charAt(i) - '0') * (10 - i);
+        }
+
+        int dv1 = 11 - (soma % 11);
+        if (dv1 >= 10) dv1 = 0;
+
+        soma = 0;
+
+        for (int i = 0; i < 10; i++) {
+            soma += (cpf.charAt(i) - '0') * (11 - i);
+        }
+
+        int dv2 = 11 - (soma % 11);
+        if (dv2 >= 10) dv2 = 0;
+
+        return (cpf.charAt(9) - '0') == dv1
+                && (cpf.charAt(10) - '0') == dv2;
+    }
 }
