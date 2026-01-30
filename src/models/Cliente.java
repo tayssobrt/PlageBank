@@ -7,8 +7,7 @@ public class Cliente {
     private int tentativas;
     private boolean bloqueado;
 
-    public Cliente() {
-
+    public Cliente(Cliente cliente) {
     }
 
     public Cliente(String nome, String cpf, String senha, int tentativas, boolean bloqueado) {
