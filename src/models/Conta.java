@@ -1,4 +1,5 @@
 package models;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,6 +43,17 @@ public class Conta {
         } else {
             return true;
         }
+    }
+
+    private boolean sacar(Double valor) {
+       //Valida os metdos
+       if (!validarSaldo(valor)|| !validarValor(valor) || !validarContaAtiva()) {
+           System.out.println("O saque não pode ser efetuado");
+           return false;
+       }
+
+           this.saldo -= valor;
+           return true;
     }
 
     private boolean validarValor(Double valor) {
