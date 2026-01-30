@@ -5,58 +5,88 @@ import java.time.LocalDateTime;
 public class Transacao {
     private String id;
     private TipoTransacao tipo;
+    private Conta contaDestino;
+    private Conta contaOrigem;
     private double valor;
     private LocalDateTime dataHora;
     private String descricao;
 
-    public Transacao() {
-    }
-
-    public Transacao(String id, TipoTransacao tipo, double valor, LocalDateTime dataHora, String descricao) {
-        this.id = id;
+    public Transacao(TipoTransacao tipo, double valor, Conta contaOrigem) {
         this.tipo = tipo;
         this.valor = valor;
-        this.dataHora = dataHora;
-        this.descricao = descricao;
+        this.contaOrigem = contaOrigem;
+    }
+
+    public Transacao(TipoTransacao tipo, double valor, Conta contaOrigem, Conta contaDestino) {
+        this.tipo = tipo;
+        this.valor = valor;
+        this.contaOrigem = contaOrigem;
+        this.contaDestino = contaDestino;
     }
 
     public String getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public TipoTransacao getTipo() {
         return tipo;
-    }
-
-    public void setTipo(TipoTransacao tipo) {
-        this.tipo = tipo;
     }
 
     public double getValor() {
         return valor;
     }
 
-    public void setValor(double valor) {
-        this.valor = valor;
-    }
-
     public LocalDateTime getDataHora() {
         return dataHora;
     }
 
-    public void setDataHora(LocalDateTime dataHora) {
-        this.dataHora = dataHora;
+    public String getDescricao() {return descricao;}
+
+    public Conta getContaDestino() {
+        return contaDestino;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public Conta getContaOrigem() {
+        return contaOrigem;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    @Override
+    public String toString() {
+        return "Transacao{" +
+                "id='" + id + '\'' +
+                ", tipo=" + tipo +
+                ", valor=" + valor +
+                ", dataHora=" + dataHora +
+                ", descricao='" + descricao + '\'' +
+                '}';
     }
-}
+
+    private String gerarId() {
+            int idNumero = Integer.parseInt(this.id);
+            idNumero++;
+            this.id = String.valueOf(idNumero);
+
+            return this.id;
+        }
+
+    private String gerarDescricao() {
+        switch (this.tipo) {
+            case SAQUE -> {
+                return "Saque de" + getValor();
+            }
+            case DEPOSITO -> {
+                return "Deposito de" + getValor();
+            }
+            case TRANSFERENCIA_DEBITO -> {
+                return "Transferencia enviada de R$ " + getValor() + " para " + getContaDestino();
+            }
+            case TRANSFERENCIA_CREDITO -> {
+                return "Transferencia recebiida de R$ " + getValor() + " de " + getContaOrigem();
+            }
+        }
+        return "";
+    }
+
+    }
+
+
