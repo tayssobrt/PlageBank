@@ -92,7 +92,11 @@ public class Conta {
     }
 
     private  boolean validarContaAtiva(){
+        if (!isAtiva()) {
+            return false;
+        }
 
+        return true;
     }
 
 }
