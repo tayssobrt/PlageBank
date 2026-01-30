@@ -1,5 +1,4 @@
 package models;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,11 +10,18 @@ public class Conta {
 
     private List<Transacao> historico = new ArrayList<>();
 
+    public Conta(String numero, Cliente cliente, double saldoinicial) {
+    }
+
     public Conta(String numero, Double saldoInicial, Cliente titular) {
         this.numero = numero;
         this.saldo = saldoInicial;
         this.titular = titular;
+        this.status = StatusConta.ATIVA;
+        this.historico = new ArrayList<>();
     }
+
+
 
     public String getNumero() {
         return numero;
