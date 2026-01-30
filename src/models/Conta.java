@@ -67,6 +67,9 @@ public class Conta {
         return true;
     }
 
+    public void adicionarTransacao(Transacao transacao) {
+    }
+
     private boolean validarValor(Double valor) {
         //valida os valores de saque
         if (valor == 0) {
