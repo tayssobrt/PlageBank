@@ -56,6 +56,17 @@ public class Conta {
            return true;
     }
 
+    private boolean depositar(Double valor) {
+        //Valida os metdos
+        if (!validarContaAtiva()) {
+            System.out.println("O saque não pode ser efetuado");
+            return false;
+        }
+
+        this.saldo += valor;
+        return true;
+    }
+
     private boolean validarValor(Double valor) {
         //valida os valores de saque
         if (valor == 0) {
@@ -68,6 +79,7 @@ public class Conta {
             return true;
         }
     }
+
 
     private boolean validarSaldo(Double valor) {
         //valida se o user tem saldo suficiente para o saldo
