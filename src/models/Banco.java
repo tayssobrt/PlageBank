@@ -56,4 +56,15 @@ public class Banco {
         return null;
     }
 
+    public Cliente buscarCliente(String cpf) {
+        for (Cliente c : clientes) {
+
+            if (c.getCpf().equals(cpf)) {
+                return c;
+            }
+        }
+        System.out.println("Conta não encontrada");
+        return null;
+    }
+
 }
