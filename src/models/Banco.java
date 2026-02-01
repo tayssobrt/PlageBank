@@ -46,6 +46,11 @@ public class Banco {
     }
 
     public Conta buscarConta(String numero) {
+        if (numero == null || numero.isEmpty()) {
+            System.out.println("O campo numero não pode ficar vazio");
+            return null;
+        }
+
         for (Conta c : contas) {
 
             if (c.getNumero().equals(numero)) {
@@ -57,6 +62,11 @@ public class Banco {
     }
 
     public Cliente buscarCliente(String cpf) {
+        if (cpf == null || cpf.isEmpty()) {
+            System.out.println("O campo CPF não pode ficar vazio");
+            return null;
+        }
+
         for (Cliente c : clientes) {
 
             if (c.getCpf().equals(cpf)) {
