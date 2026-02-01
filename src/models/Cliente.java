@@ -10,7 +10,7 @@ public class Cliente {
     public Cliente(Cliente cliente) {
     }
 
-    public Cliente(String nome, String cpf, String senha, int tentativas, boolean bloqueado) {
+    public Cliente(String nome, String cpf, String senha) {
         this.nome = nome;
         this.cpf = cpf;
         this.senha = senha;
