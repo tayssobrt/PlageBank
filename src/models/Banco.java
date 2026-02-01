@@ -45,4 +45,15 @@ public class Banco {
         return cliente;
     }
 
+    public Conta buscarConta(String numero) {
+        for (Conta c : contas) {
+
+            if (c.getNumero().equals(numero)) {
+                return c;
+            }
+        }
+        System.out.println("Conta não encontrada");
+        return null;
+    }
+
 }

@@ -10,10 +10,10 @@ public class Conta {
 
     private List<Transacao> historico = new ArrayList<>();
 
-    public Conta(String numero, Cliente cliente, double saldoinicial) {
+    public Conta() {
     }
 
-    public Conta(String numero, Double saldoInicial, Cliente titular) {
+    public Conta(String numero, Cliente titular, Double saldoInicial) {
         this.numero = numero;
         this.saldo = saldoInicial;
         this.titular = titular;
