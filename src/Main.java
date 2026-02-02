@@ -1,14 +1,10 @@
-import models.Cliente;
-
-import java.util.Scanner;
+import models.Banco;
+import view.MenuTerminal;
 
 public class Main {
     public static void main(String[] args) {
-
-        Cliente cliente = new Cliente();
-
-        String senha = "senha!!!";
-        cliente.autenticar(senha);
-
+        Banco banco = new Banco("Plage Bank", "001");
+        MenuTerminal menu = new MenuTerminal(banco);
+        menu.iniciar();
     }
 }
