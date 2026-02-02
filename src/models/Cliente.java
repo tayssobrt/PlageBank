@@ -18,7 +18,8 @@ public class Cliente {
         this.bloqueado = bloqueado;
     }
 
-    public boolean autenticar(String senha) {
+
+    public boolean validarSenha(String senha) {
         //verifica se a senha possui algum caracther
         boolean temCaractere = senha.chars().anyMatch(c -> "$!#@%&*".indexOf(c) >= 0);
         //verifica se a senha tem algum numeral
@@ -43,6 +44,14 @@ public class Cliente {
         }
 
         return true;
+    }
+
+    public boolean autenticar(String senha) {
+        if (senha.equals(this.senha)) {
+            return true;
+        }
+
+        return false;
     }
 
     public String getNome() {
