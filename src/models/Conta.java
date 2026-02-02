@@ -74,6 +74,7 @@ public class Conta {
     }
 
     public void adicionarTransacao(Transacao transacao) {
+        this.historico.add(transacao);
     }
 
     private boolean validarValor(Double valor) {
