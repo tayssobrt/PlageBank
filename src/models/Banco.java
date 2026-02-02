@@ -18,14 +18,14 @@ public class Banco {
 
     public Conta criarConta(Cliente cliente, double saldoinicial) {
         //validações
-       if (cliente == null) {
-           System.out.println("Cliente invalido");
-           return null;
-       }
-       if (saldoinicial < 0) {
-           System.out.println("O saldo inicial deve ser maior ou igual a 0");
-           return null;
-       }
+        if (cliente == null) {
+            System.out.println("Cliente invalido");
+            return null;
+        }
+        if (saldoinicial < 0) {
+            System.out.println("O saldo inicial deve ser maior ou igual a 0");
+            return null;
+        }
         if (!clientes.contains(cliente)) {
             System.out.println("Cliente não cadastrado no banco!");
             return null;
@@ -34,8 +34,8 @@ public class Banco {
         //gera o numero da conta
         String numeroConta = String.format("%06d", contas.size() + 1);
 
-       //finalmente cria a conta
-       Conta conta = new Conta(numeroConta, cliente, saldoinicial);
+        //finalmente cria a conta
+        Conta conta = new Conta(numeroConta, cliente, saldoinicial);
         contas.add(conta);
         return conta;
     }
@@ -74,6 +74,40 @@ public class Banco {
             }
         }
         System.out.println("Conta não encontrada");
+        return null;
+    }
+
+    public List<Conta> listarContas() {
+        if (contas.isEmpty()) {
+            System.out.println("O sistema não tem contas para mostar!");
+            return new ArrayList<>();
+        }
+
+        return new ArrayList<>(contas);
+    }
+
+    public Cliente autenticarCliente(String cpf, String senha) {
+        Cliente cliente = buscarCliente(cpf);
+
+        if (cliente == null) {
+            System.out.println("Cliente não encontrado");
+            return null;
+
+        }
+        if (cliente.isBloqueado()) {
+            System.out.println("Esse cpf esta bloqueado");
+            return null;
+        }
+
+        boolean autenticado = cliente.autenticar(senha);
+
+        if (autenticado) {
+            cliente.resetarTentativas();
+            return cliente;
+        } else {
+            cliente.incrementarTentativas();
+        }
+
         return null;
     }
 
