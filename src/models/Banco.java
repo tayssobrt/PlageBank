@@ -41,6 +41,12 @@ public class Banco {
     }
 
     public Cliente criarCliente(String nome, String cpf, String senha) {
+
+        Cliente clienteTemp = new Cliente(nome, cpf, senha);
+        if (!clienteTemp.validarCpf(cpf) || clienteTemp.validarSenha(senha)) {
+            throw new IllegalArgumentException();
+        }
+
         Cliente cliente = new Cliente(nome, cpf, senha);
         return cliente;
     }
