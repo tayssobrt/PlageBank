@@ -53,6 +53,10 @@ public class Cliente {
         return cpf;
     }
 
+    public int getTentativas() {
+        return tentativas;
+    }
+
     public boolean isBloqueado() {
         return bloqueado;
     }
@@ -65,8 +69,12 @@ public class Cliente {
         this.tentativas = 0;
     }
 
-    public void icrementarTentativas() {
+    public void incrementarTentativas() {
         this.tentativas = tentativas + 1;
+
+        if (this.tentativas >= 3) {
+            bloquear(bloqueado);
+        }
     }
 
     public boolean validarCpf(String cpf) {
