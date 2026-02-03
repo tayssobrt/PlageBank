@@ -10,7 +10,6 @@ public class Banco {
     private List<Conta> contas = new ArrayList<>();
     private List<Cliente> clientes = new ArrayList<>();
 
-
     public Banco(String nome, String codigo) {
         this.nome = nome;
         this.codigo = codigo;
