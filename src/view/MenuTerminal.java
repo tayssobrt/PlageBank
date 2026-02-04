@@ -23,24 +23,32 @@ public class MenuTerminal {
     }
 
     public void iniciar() {
-        System.out.println("=== PLAGE BANK ===\n" +
-                "1. Criar novo cliente\n" +
-                "2. Fazer login\n" +
-                "3. Sair do sistema");
+        while (true) {
+            System.out.println("=== PLAGE BANK ===\n" +
+                    "1. Criar novo cliente\n" +
+                    "2. Fazer login\n" +
+                    "3. Sair do sistema");
 
-        String escolha = sc.nextLine();
-       switch (escolha) {
-           case "1":
-               cadastro();
-               break;
-               
-           case "2":
-               login();
-               break;
+            String escolha = sc.nextLine();
+            switch (escolha) {
+                case "1":
+                    cadastro();
+                    break;
 
-           case "3":
-               break;
-       }
+                case "2":
+                    login();
+                    break;
+
+                case "3":
+                    return;
+
+                default:
+                    System.out.println("Menu não encontrado!");
+                    iniciar();
+                    break;
+
+            }
+        }
     }
 
     public void cadastro() {
