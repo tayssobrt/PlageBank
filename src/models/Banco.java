@@ -47,6 +47,7 @@ public class Banco {
         }
 
         Cliente cliente = new Cliente(nome, cpf, senha);
+        clientes.add(cliente);
         return cliente;
     }
 
@@ -78,7 +79,6 @@ public class Banco {
                 return c;
             }
         }
-        System.out.println("Conta não encontrada");
         return null;
     }
 
