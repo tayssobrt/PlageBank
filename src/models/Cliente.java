@@ -49,9 +49,11 @@ public class Cliente {
     public boolean autenticar(String senha) {
         if (senha.equals(this.senha)) {
             return true;
+        } else {
+            System.out.println("SENHA INVALIDA");
+            return false;
         }
 
-        return false;
     }
 
     public String getNome() {
