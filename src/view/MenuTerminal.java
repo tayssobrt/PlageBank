@@ -11,15 +11,15 @@ public class MenuTerminal {
     private Cliente clientelogado;
     private boolean sistemaRodando;
 
-    public MenuTerminal() {
-
+    public MenuTerminal(Banco banco) {
+    this.banco = banco;
+    this.sistemaRodando = false;
     }
 
-    public MenuTerminal(Banco banco, Scanner sc, Cliente clientelogado, boolean sistemaRodando) {
+    public MenuTerminal(Scanner sc, Cliente clientelogado, boolean sistemaRodando) {
         this.banco = banco;
         this.sc = sc;
         this.clientelogado = clientelogado;
-        this.sistemaRodando = sistemaRodando;
     }
 
     public void iniciar() {
@@ -44,11 +44,14 @@ public class MenuTerminal {
 
                        banco.criarCliente(nome, cpf, senha);
                        this.sistemaRodando = true;
+                       break;
                    } catch (IllegalArgumentException e) {
+                       System.out.println("Erro ao criar novo cliente");
                        this.sistemaRodando = false;
                    }
                }
            case "2":
+
 
        }
     }

@@ -7,15 +7,15 @@ public class Cliente {
     private int tentativas;
     private boolean bloqueado;
 
-    public Cliente(Cliente cliente) {
+    public Cliente() {
     }
 
     public Cliente(String nome, String cpf, String senha) {
         this.nome = nome;
         this.cpf = cpf;
         this.senha = senha;
-        this.tentativas = tentativas;
-        this.bloqueado = bloqueado;
+        this.tentativas = 0;
+        this.bloqueado = false;
     }
 
 
