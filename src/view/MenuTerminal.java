@@ -37,6 +37,9 @@ public class MenuTerminal {
            case "2":
                login();
                break;
+
+           case "3":
+               break;
        }
     }
 
