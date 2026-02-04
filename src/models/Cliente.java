@@ -29,17 +29,17 @@ public class Cliente {
 
         //verifica as validações para liberar
         if (!temTamanho) {
-            System.out.println("A senha não possui tamanho suficiente, Min: 8");
+            System.out.println("A senha deve possuir 8 Caracteres");
             return false;
         }
 
         if (!temDigito) {
-            System.out.println("A senha não tem um numero EX: 123");
+            System.out.println("A senha deve ter um numero EX: 123");
             return false;
         }
 
         if (!temCaractere) {
-            System.out.println("A senha não tem um caractere EX: !@#$");
+            System.out.println("A senha deve ter um caractere EX: !@#$");
             return false;
         }
 
