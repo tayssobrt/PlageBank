@@ -21,14 +21,16 @@ public class Conta {
         this.historico = new ArrayList<>();
     }
 
-
-
     public String getNumero() {
         return numero;
     }
 
     public Cliente getTitular() {
         return titular;
+    }
+
+    public List<Transacao> getHistorico() {
+        return new ArrayList<>(historico);
     }
 
     public StatusConta getStatus() {
@@ -51,7 +53,7 @@ public class Conta {
         }
     }
 
-    private boolean sacar(Double valor) {
+    public boolean sacar(Double valor) {
        //Valida os metdos
        if (!validarSaldo(valor)|| !validarValor(valor) || !validarContaAtiva()) {
            System.out.println("O saque não pode ser efetuado");
@@ -62,7 +64,7 @@ public class Conta {
            return true;
     }
 
-    private boolean depositar(Double valor) {
+    public boolean depositar(Double valor) {
         //Valida os metdos
         if (!validarContaAtiva()) {
             System.out.println("O saque não pode ser efetuado");
@@ -90,6 +92,10 @@ public class Conta {
         }
     }
 
+    public double consultarSaldo() {
+        return this.saldo;
+    }
+
 
     private boolean validarSaldo(Double valor) {
         //valida se o user tem saldo suficiente para o saldo
@@ -105,6 +111,33 @@ public class Conta {
         if (!isAtiva()) {
             return false;
         }
+
+        return true;
+    }
+
+    public boolean transferir(Conta contaDestino, Double valor) {
+        if (!validarSaldo(valor) || !validarValor(valor) || !validarContaAtiva()) {
+            return false;
+        }
+        
+        if (contaDestino == null || !contaDestino.isAtiva()) {
+            System.out.println("Conta destino inválida ou inativa");
+            return false;
+        }
+        
+        if (contaDestino.getNumero().equals(this.numero)) {
+            System.out.println("Não pode transferir para a mesma conta");
+            return false;
+        }
+
+        this.saldo -= valor;
+        contaDestino.saldo += valor;
+
+        Transacao transacaoDebito = new Transacao(TipoTransacao.TRANSFERENCIA_DEBITO, valor, this, contaDestino);
+        Transacao transacaoCredito = new Transacao(TipoTransacao.TRANSFERENCIA_CREDITO, valor, this, contaDestino);
+
+        this.adicionarTransacao(transacaoDebito);
+        contaDestino.adicionarTransacao(transacaoCredito);
 
         return true;
     }
