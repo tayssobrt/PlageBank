@@ -315,12 +315,6 @@ public class MenuTerminal {
     }
 
     private void sacar(Conta conta) {
-        if (conta.getStatus() == StatusConta.BLOQUEADA) {
-            System.out.println("Conta bloqueada!");
-            System.out.println("Você não pode sacar!");
-            return;
-        }
-
         System.out.println("Valor a sacar: ");
 
         try {
@@ -343,12 +337,6 @@ public class MenuTerminal {
         System.out.println("=== PLAGE BANK ===");
         System.out.println("     Depositar ");
         System.out.println("");
-
-        if (conta.getStatus() == StatusConta.BLOQUEADA) {
-            System.out.println("Conta bloqueada!");
-            System.out.println("Não é possivevl transfeirir!");
-            return;
-        }
 
         System.out.println("Numero da conta destino: ");
         String numeroConta = sc.nextLine();
