@@ -1,6 +1,8 @@
 package models;
 
+import java.text.DecimalFormat;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
 public class Transacao {
@@ -11,6 +13,9 @@ public class Transacao {
     private final double valor;
     private final LocalDateTime dataHora;
     private final String descricao;
+
+    DecimalFormat df = new DecimalFormat("0.00");
+    DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
     public Transacao(TipoTransacao tipo, double valor, Conta contaOrigem) {
         this.tipo = tipo;
@@ -61,9 +66,9 @@ public class Transacao {
     public String toString() {
         return "Transacao{" +
                 "id='" + id + '\'' +
-                ", tipo=" + tipo +
-                ", valor=" + valor +
-                ", dataHora=" + dataHora +
+                "," + tipo +
+                " de R$ " + df.format(valor) +
+                ", dataHora=" + dataHora.format(fmt) +
                 ", descricao='" + descricao + '\'' +
                 '}';
     }
