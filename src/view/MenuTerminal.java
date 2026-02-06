@@ -14,7 +14,7 @@ public class MenuTerminal {
     public MenuTerminal(Banco banco) {
         this.banco = banco;
         this.sc = new Scanner(System.in);
-        this.clientelogado = new Cliente();
+        this.clientelogado = null;
     }
 
     public void iniciar() {
