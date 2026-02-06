@@ -1,6 +1,7 @@
 package models;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 public class Transacao {
     private String id;
@@ -15,6 +16,9 @@ public class Transacao {
         this.tipo = tipo;
         this.valor = valor;
         this.contaOrigem = contaOrigem;
+        this.id = gerarId();
+        this.dataHora = LocalDateTime.now();
+        this.descricao = gerarDescricao();
     }
 
     public Transacao(TipoTransacao tipo, double valor, Conta contaOrigem, Conta contaDestino) {
@@ -22,6 +26,9 @@ public class Transacao {
         this.valor = valor;
         this.contaOrigem = contaOrigem;
         this.contaDestino = contaDestino;
+        this.id = gerarId();
+        this.dataHora = LocalDateTime.now();
+        this.descricao = gerarDescricao();
     }
 
     public String getId() {
@@ -62,11 +69,7 @@ public class Transacao {
     }
 
     private String gerarId() {
-            int idNumero = Integer.parseInt(this.id);
-            idNumero++;
-            this.id = String.valueOf(idNumero);
-
-            return this.id;
+       return UUID.randomUUID().toString().substring(0, 8);
         }
 
     private String gerarDescricao() {
