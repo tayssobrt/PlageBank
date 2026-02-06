@@ -10,9 +10,6 @@ public class Conta {
 
     private List<Transacao> historico = new ArrayList<>();
 
-    public Conta() {
-    }
-
     public Conta(String numero, Cliente titular, Double saldoInicial) {
         this.numero = numero;
         this.saldo = saldoInicial;
@@ -70,6 +67,7 @@ public class Conta {
         //Valida os metdos
         if (valor <= 0) {
             System.out.println("Você não pode depositar um valor negativo");
+            return false;
         }
 
         Transacao t = new Transacao(TipoTransacao.DEPOSITO, valor, this);

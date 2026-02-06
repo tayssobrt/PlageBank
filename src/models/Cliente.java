@@ -8,12 +8,6 @@ public class Cliente {
     private boolean bloqueado;
 
     public Cliente(String nome, String cpf, String senha) {
-        this.nome = nome;
-        this.cpf = cpf;
-        this.senha = senha;
-        this.tentativas = 0;
-        this.bloqueado = false;
-
         if (!validarCpf(cpf)) {
             throw new IllegalArgumentException("Cpf invalido!");
         }
@@ -21,6 +15,13 @@ public class Cliente {
         if (!validarSenha(senha)) {
             throw new IllegalArgumentException("Senha invalida!");
         }
+
+        this.nome = nome;
+        this.cpf = cpf;
+        this.senha = senha;
+        this.tentativas = 0;
+        this.bloqueado = false;
+
     }
 
 
