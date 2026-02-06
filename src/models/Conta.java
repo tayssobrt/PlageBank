@@ -68,11 +68,6 @@ public class Conta {
 
     public boolean depositar(Double valor) {
         //Valida os metdos
-        if (!validarContaAtiva()) {
-            System.out.println("O saque não pode ser efetuado");
-            return false;
-        }
-
         if (valor <= 0) {
             System.out.println("Você não pode depositar um valor negativo");
         }
