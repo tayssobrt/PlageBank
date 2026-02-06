@@ -13,6 +13,14 @@ public class Cliente {
         this.senha = senha;
         this.tentativas = 0;
         this.bloqueado = false;
+
+        if (!validarCpf(cpf)) {
+            throw new IllegalArgumentException("Cpf invalido!");
+        }
+
+        if (!validarSenha(senha)) {
+            throw new IllegalArgumentException("Senha invalida!");
+        }
     }
 
 
