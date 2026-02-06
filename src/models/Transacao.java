@@ -4,13 +4,13 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 public class Transacao {
-    private String id;
-    private TipoTransacao tipo;
+    private final String id;
+    private final TipoTransacao tipo;
     private Conta contaDestino;
-    private Conta contaOrigem;
-    private double valor;
-    private LocalDateTime dataHora;
-    private String descricao;
+    private final Conta contaOrigem;
+    private final double valor;
+    private final LocalDateTime dataHora;
+    private final String descricao;
 
     public Transacao(TipoTransacao tipo, double valor, Conta contaOrigem) {
         this.tipo = tipo;
