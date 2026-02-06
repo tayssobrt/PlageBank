@@ -61,6 +61,8 @@ public class Conta {
        }
 
            this.saldo -= valor;
+       Transacao t = new Transacao(TipoTransacao.SAQUE, valor, this);
+       adicionarTransacao(t);
            return true;
     }
 
@@ -71,6 +73,12 @@ public class Conta {
             return false;
         }
 
+        if (valor <= 0) {
+            System.out.println("Você não pode depositar um valor negativo");
+        }
+
+        Transacao t = new Transacao(TipoTransacao.DEPOSITO, valor, this);
+        adicionarTransacao(t);
         this.saldo += valor;
         return true;
     }
