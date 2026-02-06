@@ -230,15 +230,16 @@ public class MenuTerminal {
 
         if (!contaEscolhida.getTitular().getCpf().equals(clientelogado.getCpf())) {
             System.out.println("Essa conta não pertence a você");
-
-            // verifica se a conta esta bloqueada
-            if (contaEscolhida.getStatus() == StatusConta.BLOQUEADA) {
-                System.out.println("ATENÇÃO: Esta conta está BLOQUEADA!");
-                System.out.println("Você pode consultar saldo e histórico, mas não pode sacar ou transferir.");
-            }
-
-            menuConta(contaEscolhida);
+            return;
         }
+
+        // verifica se a conta esta bloqueada
+        if (contaEscolhida.getStatus() == StatusConta.BLOQUEADA) {
+            System.out.println("ATENÇÃO: Esta conta está BLOQUEADA!");
+            System.out.println("Você pode consultar saldo e histórico, mas não pode sacar ou transferir.");
+        }
+
+        menuConta(contaEscolhida);
     }
 
     private void menuConta(Conta conta) {
