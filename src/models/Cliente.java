@@ -77,7 +77,7 @@ public class Cliente {
         return bloqueado;
     }
 
-    public void bloquear(Boolean bloqueado) {
+    public void bloquear() {
         this.bloqueado = true;
     }
 
@@ -89,7 +89,7 @@ public class Cliente {
         this.tentativas = tentativas + 1;
 
         if (this.tentativas >= 3) {
-            bloquear(bloqueado);
+            bloquear();
         }
     }
 
