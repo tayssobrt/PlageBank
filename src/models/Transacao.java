@@ -15,7 +15,7 @@ public class Transacao {
     private final String descricao;
 
     DecimalFormat df = new DecimalFormat("0.00");
-    DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+    DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy' as 'HH:mm:ss");
 
     public Transacao(TipoTransacao tipo, double valor, Conta contaOrigem) {
         this.tipo = tipo;
@@ -64,13 +64,8 @@ public class Transacao {
 
     @Override
     public String toString() {
-        return "Transacao{" +
-                "id='" + id + '\'' +
-                "," + tipo +
-                " de R$ " + df.format(valor) +
-                ", dataHora=" + dataHora.format(fmt) +
-                ", descricao='" + descricao + '\'' +
-                '}';
+        return "ID: "+ id + " " + gerarDescricao() +
+                ", No dia " + dataHora.format(fmt);
     }
 
     private String gerarId() {
@@ -86,10 +81,10 @@ public class Transacao {
                 return "Deposito de" + getValor();
             }
             case TRANSFERENCIA_DEBITO -> {
-                return "Transferencia enviada de R$ " + getValor() + " para " + getContaDestino();
+                return "Transferencia enviada de R$ " + getValor() + " para " + "ID: " + getContaDestino().getNumero();
             }
             case TRANSFERENCIA_CREDITO -> {
-                return "Transferencia recebiida de R$ " + getValor() + " de " + getContaOrigem();
+                return "Transferencia recebiida de R$ " + getValor() + " de " + "ID: " + getContaOrigem().getNumero();
             }
         }
         return "";

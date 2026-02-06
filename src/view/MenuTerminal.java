@@ -226,7 +226,8 @@ public class MenuTerminal {
         if (numeroConta.equalsIgnoreCase("voltar")) {
             return;
         }
-        Conta contaEscolhida = banco.buscarConta(numeroConta);
+try {
+    Conta contaEscolhida = banco.buscarConta(numeroConta);
 
         if (!contaEscolhida.getTitular().getCpf().equals(clientelogado.getCpf())) {
             System.out.println("Essa conta não pertence a você");
@@ -240,6 +241,11 @@ public class MenuTerminal {
         }
 
         menuConta(contaEscolhida);
+
+} catch (NullPointerException e) {
+    System.out.println("Erro ao buscar conta!");
+}
+
     }
 
     private void menuConta(Conta conta) {
@@ -298,7 +304,7 @@ public class MenuTerminal {
         System.out.println("=== PLAGE BANK ===");
         System.out.println("     Depositar ");
         System.out.println("");
-        System.out.println("Valor a depositar: ");
+        System.out.print("Valor a depositar: ");
 
         try {
             double valor = Double.parseDouble(sc.nextLine());
@@ -315,7 +321,7 @@ public class MenuTerminal {
     }
 
     private void sacar(Conta conta) {
-        System.out.println("Valor a sacar: ");
+        System.out.print("Valor a sacar: ");
 
         try {
             double valor = Double.parseDouble(sc.nextLine());
@@ -338,7 +344,7 @@ public class MenuTerminal {
         System.out.println("     Depositar ");
         System.out.println("");
 
-        System.out.println("Numero da conta destino: ");
+        System.out.print("Numero da conta destino: ");
         String numeroConta = sc.nextLine();
 
         Conta contaDestino = banco.buscarConta(numeroConta);
@@ -349,7 +355,7 @@ public class MenuTerminal {
         }
 
         if (contaDestino.getNumero().equals(conta.getNumero())) {
-            System.out.println("✗ Não pode transferir para a mesma conta!");
+            System.out.println("Não pode transferir para a mesma conta!");
             return;
         }
 
@@ -359,7 +365,7 @@ public class MenuTerminal {
             double valor = Double.parseDouble(sc.nextLine());
 
             if (conta.transferir(contaDestino, valor)) {
-                System.out.println("✓ Transferência realizada com sucesso!");
+                System.out.println("Transferência realizada com sucesso!");
                 System.out.println("Novo saldo: R$ " + String.format("%.2f", conta.consultarSaldo()));
             } else {
                 System.out.println("✗ Saldo insuficiente ou valor inválido!");
