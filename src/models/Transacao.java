@@ -8,7 +8,7 @@ import java.util.UUID;
 public class Transacao {
     private final String id;
     private final TipoTransacao tipo;
-    private Conta contaDestino;
+    private final Conta contaDestino;
     private final Conta contaOrigem;
     private final double valor;
     private final LocalDateTime dataHora;
@@ -21,6 +21,7 @@ public class Transacao {
         this.tipo = tipo;
         this.valor = valor;
         this.contaOrigem = contaOrigem;
+        this.contaDestino = null;
         this.id = gerarId();
         this.dataHora = LocalDateTime.now();
         this.descricao = gerarDescricao();
@@ -75,10 +76,10 @@ public class Transacao {
     private String gerarDescricao() {
         switch (this.tipo) {
             case SAQUE -> {
-                return "Saque de" + getValor();
+                return "Saque de " + getValor();
             }
             case DEPOSITO -> {
-                return "Deposito de" + getValor();
+                return "Deposito de " + getValor();
             }
             case TRANSFERENCIA_DEBITO -> {
                 return "Transferencia enviada de R$ " + getValor() + " para " + "ID: " + getContaDestino().getNumero();
