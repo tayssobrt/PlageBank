@@ -18,6 +18,10 @@ public class Conta {
         this.historico = new ArrayList<>();
     }
 
+    public String getNomeTitular() {
+        return titular.getNome();
+    }
+
     public String getNumero() {
         return numero;
     }

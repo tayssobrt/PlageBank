@@ -76,16 +76,16 @@ public class Transacao {
     private String gerarDescricao() {
         switch (this.tipo) {
             case SAQUE -> {
-                return "Saque de " + getValor();
+                return "Saque de R$ " + getValor();
             }
             case DEPOSITO -> {
-                return "Deposito de " + getValor();
+                return "Deposito de R$ " + getValor();
             }
             case TRANSFERENCIA_DEBITO -> {
-                return "Transferencia enviada de R$ " + getValor() + " para " + "ID: " + getContaDestino().getNumero();
+                return "Transferencia enviada de R$ " + getValor() + " para " + "ID: " + getContaDestino().getNumero() + " " + getContaDestino().getNomeTitular();
             }
             case TRANSFERENCIA_CREDITO -> {
-                return "Transferencia recebiida de R$ " + getValor() + " de " + "ID: " + getContaOrigem().getNumero();
+                return "Transferencia recebiida de R$ " + getValor() + " de " + "ID: " + getContaOrigem().getNumero() + " " + getContaOrigem().getNomeTitular();
             }
         }
         return "";
