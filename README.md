@@ -5,7 +5,7 @@
 [![Status](https://img.shields.io/badge/Status-Concluído-success.svg)]()
 [![Grade](https://img.shields.io/badge/Nota-9.0%2F10-brightgreen.svg)]()
 
-## 📋 Índice
+##  Índice
 
 - [Sobre o Projeto](#sobre-o-projeto)
 - [Funcionalidades](#funcionalidades)
@@ -23,13 +23,13 @@
 
 ---
 
-## 📖 Sobre o Projeto
+##  Sobre o Projeto
 
 **Plage Bank** é um sistema bancário desenvolvido em Java puro, implementado via terminal/console, com foco em **Programação Orientada a Objetos (POO)**, boas práticas de desenvolvimento e aplicação rigorosa de regras de negócio.
 
 O projeto foi desenvolvido como desafio técnico para demonstrar domínio de conceitos fundamentais de engenharia de software, incluindo encapsulamento, separação de responsabilidades, validações em múltiplas camadas e imutabilidade.
 
-### 🎯 Objetivos
+###  Objetivos
 
 - Aplicar conceitos sólidos de POO
 - Implementar regras de negócio complexas
@@ -41,26 +41,26 @@ O projeto foi desenvolvido como desafio técnico para demonstrar domínio de con
 
 ## ⚙️ Funcionalidades
 
-### 🔐 Gestão de Clientes
+###  Gestão de Clientes
 - [x] Cadastro de clientes com validação de CPF
 - [x] Autenticação segura com senha forte
 - [x] Bloqueio automático após 3 tentativas incorretas
 - [x] Validação de CPF com algoritmo verificador
 
-### 💳 Gestão de Contas
+###  Gestão de Contas
 - [x] Criação de contas bancárias
 - [x] Consulta de saldo em tempo real
 - [x] Listagem de contas por cliente
 - [x] Controle de status (ATIVA/BLOQUEADA)
 
-### 💰 Operações Financeiras
+###  Operações Financeiras
 - [x] **Depósito** - Entrada de valores na conta
 - [x] **Saque** - Retirada com validação de saldo
 - [x] **Transferência** - Entre contas com registro duplo
 - [x] Validação de valores (positivos, não-nulos)
 - [x] Prevenção de saldo negativo
 
-### 📊 Auditoria e Histórico
+###  Auditoria e Histórico
 - [x] Registro automático de todas transações
 - [x] ID único por transação (UUID)
 - [x] Timestamp de cada operação
@@ -69,7 +69,7 @@ O projeto foi desenvolvido como desafio técnico para demonstrar domínio de con
 
 ---
 
-## 🏗️ Arquitetura
+##  Arquitetura
 
 O projeto segue uma arquitetura em camadas com separação clara de responsabilidades:
 
@@ -106,7 +106,7 @@ O projeto segue uma arquitetura em camadas com separação clara de responsabili
 
 ---
 
-## 📐 Modelagem UML
+##  Modelagem UML
 
 ### Diagrama de Classes
 
@@ -162,7 +162,7 @@ O projeto segue uma arquitetura em camadas com separação clara de responsabili
 
 ---
 
-## 📜 Regras de Negócio
+##  Regras de Negócio
 
 ### RN01 - Autenticação
 - Cliente deve fornecer CPF e senha válidos
@@ -184,11 +184,11 @@ O projeto segue uma arquitetura em camadas com separação clara de responsabili
 - Status inicial: ATIVA
 
 ### RN05 - Conta Bloqueada
-- ❌ Não pode realizar saques
-- ❌ Não pode realizar transferências
-- ✅ Pode consultar saldo
-- ✅ Pode receber depósitos
-- ✅ Pode visualizar histórico
+-  Não pode realizar saques
+-  Não pode realizar transferências
+-  Pode consultar saldo
+-  Pode receber depósitos
+-  Pode visualizar histórico
 
 ### RN06 - Operação de Saque
 - Valor deve ser positivo e não-nulo
@@ -218,7 +218,7 @@ O projeto segue uma arquitetura em camadas com separação clara de responsabili
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+##  Tecnologias Utilizadas
 
 - **Java 17+** - Linguagem de programação
 - **Collections Framework** - ArrayList, List
@@ -240,7 +240,7 @@ java.time.format.DateTimeFormatter
 
 ---
 
-## 📁 Estrutura do Projeto
+##  Estrutura do Projeto
 
 ```
 plage-bank/
@@ -301,7 +301,7 @@ Interface do usuário via terminal. Fornece:
 
 ---
 
-## 🚀 Como Executar
+##  Como Executar
 
 ### Pré-requisitos
 
@@ -335,7 +335,7 @@ java Main
 
 ---
 
-## 💡 Exemplos de Uso
+##  Exemplos de Uso
 
 ### Fluxo Completo
 
@@ -387,7 +387,7 @@ Novo saldo: R$ 1500.00
 
 ---
 
-## 🎓 Conceitos Aplicados
+##  Conceitos Aplicados
 
 ### Programação Orientada a Objetos
 
@@ -458,7 +458,7 @@ public List<Transacao> getHistorico() {
 
 ### Metodologia
 
-- **Desenvolvimento Iterativo** - 3 versões até nota final
+- **Desenvolvimento Iterativo** - 2 versões até nota final
 - **Code Review** - Avaliação técnica rigorosa
 - **Refactoring Contínuo** - Melhorias baseadas em feedback
 
@@ -466,9 +466,8 @@ public List<Transacao> getHistorico() {
 
 | Versão | Nota | Status | Principais Melhorias |
 |--------|------|--------|---------------------|
-| v1.0 | 6.9/10 | ❌ Não Aprovado | Implementação inicial |
-| v2.0 | 8.2/10 | ✅ Aprovado | Transações funcionais, validações corrigidas |
-| v3.0 | 9.0/10 | ⭐ Excelente | Imutabilidade completa, código impecável |
+| v1.0 | 8.2/10 | ✅ Aprovado | Transações funcionais, validações corrigidas |
+| v2.0 | 9.0/10 | ⭐ Excelente | Imutabilidade completa, código impecável |
 
 ### Métricas de Qualidade
 
@@ -479,7 +478,7 @@ public List<Transacao> getHistorico() {
 
 ---
 
-## 🧪 Testes Realizados
+##  Testes Realizados
 
 ### Testes Funcionais
 
@@ -507,7 +506,7 @@ public List<Transacao> getHistorico() {
 
 ---
 
-## 📈 Possíveis Melhorias Futuras
+##  Possíveis Melhorias Futuras
 
 ### Funcionalidades
 - [ ] Persistência em banco de dados (JDBC/JPA)
@@ -532,8 +531,8 @@ public List<Transacao> getHistorico() {
 **Thiago Carvalho**
 
 - GitHub: [@tayssobrt](https://github.com/tayssobrt)
-- LinkedIn: [Seu LinkedIn]
-- Email: [seu.email@exemplo.com]
+- LinkedIn: [Thiago Andre](https://www.linkedin.com/in/thiago-andr%C3%A9-75857334b/)
+- Email: thiagocarvallho27@gmail.com
 
 ---
 
@@ -543,26 +542,9 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 ---
 
-## 🙏 Agradecimentos
-
-- Claude (Anthropic) - Avaliação técnica e mentoria
-- Comunidade Java - Documentação e melhores práticas
-- Todos que contribuíram com feedback
-
----
-
-## 📚 Referências
-
-- [Java Documentation](https://docs.oracle.com/en/java/)
-- [Clean Code - Robert C. Martin](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882)
-- [Effective Java - Joshua Bloch](https://www.amazon.com/Effective-Java-Joshua-Bloch/dp/0134685997)
-- [Design Patterns](https://refactoring.guru/design-patterns)
-
----
-
 <div align="center">
 
-**Desenvolvido com ☕ e 💻 por Thiago Carvalho**
+**Desenvolvido com ☕ por Thiago Carvalho**
 
 ⭐ Se este projeto foi útil, considere dar uma estrela!
 
